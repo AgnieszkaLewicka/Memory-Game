@@ -1,0 +1,267 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png');  /*Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    font-size:40px;
+    font-weight: 900;
+}
+
+h3{
+    font-family: "Lato";
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+
+
+.deck .card.shake {
+-webkit-animation-name: shake;
+animation-name: shake;
+-webkit-animation-duration: 1s;
+animation-duration: 1s;
+-webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+}
+@-webkit-keyframes shake {
+0%, 100% {
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+10%, 30%, 50%, 70%, 90% {
+-webkit-transform: translate3d(-10px, 0, 0);
+transform: translate3d(-10px, 0, 0);
+}
+20%, 40%, 60%, 80% {
+-webkit-transform: translate3d(10px, 0, 0);
+transform: translate3d(10px, 0, 0);
+}
+}
+@keyframes shake {
+0%, 100% {
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+10%, 30%, 50%, 70%, 90% {
+-webkit-transform: translate3d(-10px, 0, 0);
+transform: translate3d(-10px, 0, 0);
+}
+20%, 40%, 60%, 80% {
+-webkit-transform: translate3d(10px, 0, 0);
+transform: translate3d(10px, 0, 0);
+}
+}
+
+
+
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(130deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 3px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    list-style-type: none;
+}
+
+.deck .card.open.fa-diamond{
+    background-image: url('../img/bart.png'); 
+}
+
+.deck .card.open.fa-paper-plane-o{
+    background-image: url('../img/jakub.png'); 
+}
+
+.deck .card.open.fa-anchor{
+    background-image: url('../img/ruben.png'); 
+}
+
+.deck .card.open.fa-bolt{
+    background-image: url('../img/omri.png'); 
+}
+.deck .card.open.fa-cube{
+    background-image: url('../img/alex.png'); 
+}
+
+.deck .card.open.fa-leaf{
+    background-image: url('../img/andy.png'); 
+}
+
+.deck .card.open.fa-bicycle{
+    background-image: url('../img/batu.png'); 
+}
+.deck .card.open.fa-bomb{
+    background-image: url('../img/josef.png'); 
+}
+
+
+
+.deck .card.open {
+    transform: rotateY(0);
+    /*background: #02b3e4;*/
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+    animation: zoomInAndOut 1s;
+}
+
+@keyframes zoomInAndOut {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.deck .card.wrong {
+    cursor: default;
+    /*background: #E32A41;*/
+    font-size: 33px;
+}
+
+
+/*
+ * Styles for the Score Panel
+ */
+
+.scorePanel {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+}
+
+.scorePanel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.scorePanel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.scorePanel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+/*
+ * Styles for the Popup
+ */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content h1,h3{
+    text-align: center;
+}
+
+.button{
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #00CCBA;
+    color: white;
+    font-weight: 800;
+    border: none;
+    box-sizing: inherit;
+    display:block;
+    
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
